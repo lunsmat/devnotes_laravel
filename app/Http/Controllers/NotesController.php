@@ -113,6 +113,8 @@ class NotesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Note::destroy($id);
+
+        return $this->response;
     }
 }
