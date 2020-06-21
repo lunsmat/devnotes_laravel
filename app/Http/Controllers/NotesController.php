@@ -46,7 +46,15 @@ class NotesController extends Controller
      */
     public function show($id)
     {
-        //
+        $note = Note::find($id);
+
+        if ($note) {
+            $this->response['result'] = $note;
+        } else {
+            $this->response['error'] = 'ID that was send, don\'t exists in database';
+        }
+
+        return $this->response;
     }
 
     /**
