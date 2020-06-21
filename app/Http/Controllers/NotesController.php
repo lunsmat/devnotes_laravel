@@ -3,9 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Note;
 
 class NotesController extends Controller
 {
+
+    private $response = [
+        'error' => '',
+        'result' => []
+    ];
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +20,11 @@ class NotesController extends Controller
      */
     public function index()
     {
-        //
+        $notes = Note::all(['id', 'title']);
+
+        $this->response['result'] = $notes;
+
+        return $this->response;
     }
 
     /**
