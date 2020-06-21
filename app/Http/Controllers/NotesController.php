@@ -35,7 +35,23 @@ class NotesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $title = $request->input('title');
+        $body = $request->input('body');
+
+        if ($title && $body) {
+            $note = new Note();
+
+            $note->title = $title;
+            $note->body = $body;
+
+            $note->save();
+
+            $this->response['result'] = $note;
+        } else {
+            $this->response['error'] = "The params (title, body) was not send";
+        }
+
+        return $this->response;
     }
 
     /**
