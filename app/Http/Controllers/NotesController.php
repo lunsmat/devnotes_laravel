@@ -82,7 +82,27 @@ class NotesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $title= $request->input('title');
+        $body= $request->input('body');
+
+        if ($title && $body) {
+            $note = Note::find($id);
+
+            if ($note) {
+                $note->body = $body;
+                $note->title = $title;
+
+                $note->save();
+
+                $this->response['result'] = $note;
+            } else {
+                $this->response['error'] = 'ID that was send, don\'t exists in database';
+            }
+        } else {
+            $this->response['result'] = "The params was not send";
+        }
+
+        return $this->response;
     }
 
     /**
