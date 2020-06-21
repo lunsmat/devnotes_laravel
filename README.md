@@ -16,4 +16,11 @@ The frontend of the app was not maden yet, so can not be accessed.
 
 ### Backend (API)
 
-The backend of the app was not maden yet, so can not be accessed.
+Here is the endpoints of the app and his uses.
+
+- `base_url/api/ping` (GET): This endpoint is a test endpoint to verify if API works, if return ping equals true, API is working.
+- `base_url/api/notes` (GET)
+- `base_url/api/notes/{id}` (GET)
+- `base_url/api/notes` (POST)
+- `base_url/api/notes/{id}` (PUT)
+- `base_url/api/notes/{id}` (DELETE)
